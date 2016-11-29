@@ -179,15 +179,10 @@
     <TypeScriptCompile Include="node_modules\%40types\react-dom\server.d.ts" />
     <TypeScriptCompile Include="node_modules\%40types\react\index.d.ts" />
     <TypeScriptCompile Include="Scripts\src\components\calculator\calculator.tsx" />
-    <TypeScriptCompile Include="Scripts\src\components\calculator\commentForm.tsx" />
-    <TypeScriptCompile Include="Scripts\src\components\calculator\commentList.tsx" />
     <TypeScriptCompile Include="Scripts\src\components\calculator\decimalButton.tsx" />
     <TypeScriptCompile Include="Scripts\src\components\calculator\digitButton.tsx" />
     <TypeScriptCompile Include="Scripts\src\components\calculator\display.tsx" />
     <TypeScriptCompile Include="Scripts\src\components\calculator\equalsButton.tsx" />
-    <TypeScriptCompile Include="Scripts\src\components\calculator\IComment.d.ts" />
-    <TypeScriptCompile Include="Scripts\src\components\calculator\comment.tsx" />
-    <TypeScriptCompile Include="Scripts\src\components\calculator\commentBox.tsx" />
     <TypeScriptCompile Include="Scripts\src\components\calculator\keypad.tsx" />
     <TypeScriptCompile Include="Scripts\src\components\calculator\operatorButton.tsx" />
     <TypeScriptCompile Include="Scripts\src\components\calculator\textButton.tsx" />
