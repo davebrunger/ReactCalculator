@@ -2,7 +2,7 @@
 
 export interface ITextButtonProps {
     label: string;
-    onClick(operator :string) : void;
+    onClick(label :string) : void;
 }
 
 export class TextButton extends React.Component<ITextButtonProps, {}> {
