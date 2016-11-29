@@ -1,4 +1,4 @@
-﻿namespace ReactTypescript.Models
+﻿namespace ReactCalculator.Models
 {
     public class CommentModel
     {

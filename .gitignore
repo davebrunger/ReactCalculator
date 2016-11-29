@@ -252,5 +252,5 @@ paket-files/
 *.sln.iml
 
 # Javscript dist folder
-/ReactTypescript/Scripts/dist
+/ReactCalculator/Scripts/dist
 *.csproj.DotSettings
