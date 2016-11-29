@@ -1,9 +1,5 @@
-# ReactTypescript
+# ReactCalculator
 
-This is a demo of how to create a ReactJS app using Typescript 2.0.
+This is a demonstration of a simple calculator using React
 
-It is based on the following tutorials
-
- - https://reactjs.net/getting-started/tutorial_aspnet4.html
- - https://medium.com/@lucavgobbi/using-react-with-typescript-on-visual-studio-39cd0a77fdd2#.wuebsdgyz
- - https://www.typescriptlang.org/docs/handbook/react-&-webpack.html
+It is based on framework created in my [ReactTypescript](https://github.com/davebrunger/ReactTypescript) repository
