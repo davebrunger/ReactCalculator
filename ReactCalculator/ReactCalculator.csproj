@@ -134,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Styles\app.css" />
     <Content Include="Web.config" />
     <Content Include="webpack.config.js" />
   </ItemGroup>
@@ -177,11 +178,18 @@
     <TypeScriptCompile Include="node_modules\%40types\react-dom\index.d.ts" />
     <TypeScriptCompile Include="node_modules\%40types\react-dom\server.d.ts" />
     <TypeScriptCompile Include="node_modules\%40types\react\index.d.ts" />
-    <TypeScriptCompile Include="Scripts\src\components\comments\commentForm.tsx" />
-    <TypeScriptCompile Include="Scripts\src\components\comments\commentList.tsx" />
-    <TypeScriptCompile Include="Scripts\src\components\comments\IComment.d.ts" />
-    <TypeScriptCompile Include="Scripts\src\components\comments\comment.tsx" />
-    <TypeScriptCompile Include="Scripts\src\components\comments\commentBox.tsx" />
+    <TypeScriptCompile Include="Scripts\src\components\calculator\calculator.tsx" />
+    <TypeScriptCompile Include="Scripts\src\components\calculator\commentForm.tsx" />
+    <TypeScriptCompile Include="Scripts\src\components\calculator\commentList.tsx" />
+    <TypeScriptCompile Include="Scripts\src\components\calculator\decimalButton.tsx" />
+    <TypeScriptCompile Include="Scripts\src\components\calculator\digitButton.tsx" />
+    <TypeScriptCompile Include="Scripts\src\components\calculator\equalsButton.tsx" />
+    <TypeScriptCompile Include="Scripts\src\components\calculator\IComment.d.ts" />
+    <TypeScriptCompile Include="Scripts\src\components\calculator\comment.tsx" />
+    <TypeScriptCompile Include="Scripts\src\components\calculator\commentBox.tsx" />
+    <TypeScriptCompile Include="Scripts\src\components\calculator\keypad.tsx" />
+    <TypeScriptCompile Include="Scripts\src\components\calculator\operatorButton.tsx" />
+    <TypeScriptCompile Include="Scripts\src\components\calculator\textButton.tsx" />
     <TypeScriptCompile Include="Scripts\src\index.tsx" />
     <TypeScriptCompile Include="Scripts\typings\remarkable.d.ts" />
   </ItemGroup>

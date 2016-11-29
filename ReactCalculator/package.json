@@ -11,6 +11,7 @@
   "dependencies": {
     "@types/react": "^0.14.49",
     "@types/react-dom": "^0.14.18",
+    "bootstrap": "^3.3.7",
     "react": "^15.4.0",
     "react-dom": "^15.4.0",
     "react-remarkable": "^1.1.1",

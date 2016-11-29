@@ -1,0 +1,17 @@
+﻿body {
+    padding-top: 30px;
+}
+
+.keypad .row {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.keypad-btn {
+    width: 100%;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
