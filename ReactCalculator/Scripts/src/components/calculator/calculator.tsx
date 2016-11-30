@@ -3,58 +3,133 @@
 import { KeyPad } from "./keypad";
 import { Display } from "./display";
 
+enum KeyType {
+    Digit,
+    Decimal,
+    Operator,
+    Other
+}
+
 export interface ICalculatorState {
     displayValue: number;
-    addDecimal: boolean;
 }
 
 export class Calculator extends React.Component<{}, ICalculatorState> {
 
-    private static readonly clearState = {
-        displayValue: 0,
-        addDecimal: false
+    private static readonly clearState: ICalculatorState = {
+        displayValue: 0
     };
+
+    private terms: string[];
+    private lastKeyPressed : KeyType;
 
     constructor(props: {}) {
         super(props);
         this.state = Calculator.clearState;
+        this.terms = [];
+        this.lastKeyPressed = KeyType.Other;
     }
 
     private clear(): void {
         this.setState(Calculator.clearState);
+        this.terms = [];
+        this.lastKeyPressed = KeyType.Other;
     }
 
     private handleDigitClick(digit: number) {
         let displayValue = this.state.displayValue.toString();
-        if (this.state.addDecimal) {
-            displayValue = displayValue + ".";
+        switch (this.lastKeyPressed) {
+            case KeyType.Decimal:
+                if (displayValue.indexOf(".") < 0) {
+                    displayValue = `${displayValue}.${digit}`;
+                } else {
+                    displayValue = `${displayValue}${digit}`;
+                }
+                break;
+            case KeyType.Digit:
+                displayValue = `${displayValue}${digit}`;
+                break;
+            case KeyType.Other:
+                displayValue = digit.toString();
+                this.terms = [];
+                break;
+            default:
+                displayValue = digit.toString();
+                break;
         }
-        displayValue = displayValue + digit.toString();
-        this.setState({ displayValue: parseFloat(displayValue), addDecimal: false });
+        this.setState({
+            displayValue: parseFloat(displayValue)
+        });
+        this.lastKeyPressed = KeyType.Digit;
+    }
+
+    private isOperator(char: string) {
+        switch (char) {
+            case "/":
+            case "*":
+            case "-":
+            case "+":
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    private evaluate() {
+        let operation = this.terms.join("");
+        if (operation) {
+            if (this.isOperator(operation[operation.length - 1])) {
+                operation = operation.substr(0, operation.length - 1);
+            }
+            this.setState({
+                displayValue: eval(operation)
+            });
+        }
     }
 
     private handleOperatorClick(operator: string) {
-        alert(`Operator: ${operator}`);
+        switch (this.lastKeyPressed) {
+            case KeyType.Operator:
+                this.terms[this.terms.length - 1] = operator;
+                break;
+            default:
+                this.terms.push(this.state.displayValue.toString());
+                this.terms.push(operator);
+                break;
+        }
+        this.evaluate();
+        this.lastKeyPressed = KeyType.Operator;
     }
 
     private handleOtherClick(label: string) {
         switch (label) {
             case "C":
                 this.clear();
-                return;
+                break;
             default:
                 throw `Unrecognised label: ${label}`;
         }
     }
 
     private handleEqualsClick() {
-        alert("Equals");
+        if (this.lastKeyPressed === KeyType.Decimal || this.lastKeyPressed === KeyType.Digit) {
+                this.terms.push(this.state.displayValue.toString());
+        }
+        this.evaluate();
+        this.terms = [];
+        this.lastKeyPressed = KeyType.Other;
     }
 
     private handleDecimalClick() {
-        if (!this.state.addDecimal && this.state.displayValue.toString().indexOf(".") < 0) {
-            this.setState({ displayValue: this.state.displayValue, addDecimal: true });
+        if (this.lastKeyPressed !== KeyType.Decimal && this.lastKeyPressed !== KeyType.Digit) {
+            this.setState({
+                 displayValue: 0
+            });
         }
+        if (this.lastKeyPressed === KeyType.Other) {
+            this.terms = [];
+        }
+        this.lastKeyPressed = KeyType.Decimal;
     }
 
     public render() {

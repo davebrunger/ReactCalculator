@@ -14,7 +14,7 @@ export class Display extends React.Component<IDisplayProps, {}> {
             }
         }
         return (
-            <input className="form-control calculator-display" type="text" value={displayValue} />
+            <input className="form-control calculator-display" type="text" value={displayValue} readOnly={true} />
         );
     }
 }
